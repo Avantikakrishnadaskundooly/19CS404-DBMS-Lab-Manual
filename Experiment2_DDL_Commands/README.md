@@ -105,123 +105,193 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Bonuses with the following constraints:
+1. BonusID as INTEGER should be the primary key.
+2. EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+3. BonusAmount as REAL should be greater than 0.
+4. BonusDate as DATE.
+5. Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Bonuses(
+    BonusID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    BonusAmount REAL CHECK(Bonusamount>0),
+    BonusDate DATE,
+    Reason TEXT NOT NULL
+);
 ```
 
 **Output:**
+<img width="1780" height="183" alt="image" src="https://github.com/user-attachments/assets/cdcbf803-9ca6-4930-aa85-1b8268ed7381" />
 
-![Output1](output.png)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Insert a product with ProductID 104, Name Tablet, and Category Electronics into the Products table, where Price and Stock should use default values.
 
 ```sql
--- Paste your SQL code below for Question 2
+INSERT Into Products(ProductID,Name,Category,Price,Stock)
+VALUES(104,'Tablet','Electronics',100,50);
 ```
 
 **Output:**
+<img width="1699" height="233" alt="image" src="https://github.com/user-attachments/assets/69f5d0f0-bc90-48c5-a163-7e66d54643b8" />
 
-![Output2](output.png)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 3
+ALTER TABLE Student_details
+ADD column MobileNumber NUMBER;
+ALTER TABLE Student_details
+ADD column Address VARCHAR(100);
 ```
 
 **Output:**
+<img width="1567" height="330" alt="image" src="https://github.com/user-attachments/assets/74122950-b5b3-4367-81b9-ab23e7c50046" />
 
-![Output3](output.png)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named ProjectAssignments with the following constraints:
+1. AssignmentID as INTEGER should be the primary key.
+2. EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+3. ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+4. AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE ProjectAssignments (
+    AssignmentID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    ProjectID INTEGER,
+    AssignmentDate DATE NOT NULL,
+    foreign key (EmployeeID) references
+Employees(EmployeeID),
+    foreign key (ProjectID) references
+Projects(ProjectID)
+);
 ```
 
 **Output:**
+<img width="1763" height="225" alt="image" src="https://github.com/user-attachments/assets/0196a914-abe7-4f20-bb94-07671f79dedb" />
 
-![Output4](output.png)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert all customers from Old_customers into Customers
+
+Table attributes are CustomerID, Name, Address, Email
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Customers (CustomerID, Name, Address, Email) 
+SELECT CustomerID, Name, Address, Email 
+FROM Old_customers;
 ```
 
 **Output:**
+<img width="1287" height="224" alt="image" src="https://github.com/user-attachments/assets/6a102705-583b-4528-8bdd-261bb5cd45b4" />
 
-![Output5](output.png)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Invoices with the following constraints:
+1. InvoiceID as INTEGER should be the primary key.
+2. InvoiceDate as DATE.
+3. Amount as REAL should be greater than 0.
+4. DueDate as DATE should be greater than the InvoiceDate.
+5. OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Invoices (
+    InvoiceID INTEGER PRIMARY KEY,
+    InvoiceDate DATE,
+    Amount REAL CHECK (Amount >0),
+    DueDate DATE CHECK (DueDate > InvoiceDate),
+    OrderID INTEGER,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
 ```
 
 **Output:**
+<img width="1609" height="189" alt="image" src="https://github.com/user-attachments/assets/e4266615-e783-44d2-8db4-645e05b8b657" />
 
-![Output6](output.png)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL Query to add an attribute designation in the employee table with the data type VARCHAR(50).
 
 ```sql
--- Paste your SQL code below for Question 7
+ALTER TABLE employee
+ADD column designation varchar(50);
 ```
 
 **Output:**
+<img width="1541" height="249" alt="image" src="https://github.com/user-attachments/assets/cce3d563-e4da-4391-adaf-2f5c23d0db72" />
 
-![Output7](output.png)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE jobs (
+    job_id INTEGER,
+    job_title TEXT DEFAULT NULL,
+    min_salary INTEGER DEFAULT 8000,
+    max_salary INTEGER DEFAULT NULL
+);
 ```
 
 **Output:**
+<img width="1626" height="249" alt="image" src="https://github.com/user-attachments/assets/a5d2c71c-d850-487c-86fd-c2eba577d763" />
 
-![Output8](output.png)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named Customers with the following columns:
+1. CustomerID as INTEGER
+2. Name as TEXT
+3. Email as TEXT
+4. JoinDate as DATETIME
 
 ```sql
--- Paste your SQL code below for Question 9
+create table Customers(
+CustomerID INTEGER,
+Name TEXT,
+Email TEXT,
+JoinDate DATETIME
+);
 ```
 
 **Output:**
+<img width="1654" height="306" alt="image" src="https://github.com/user-attachments/assets/96bd058f-3a35-4dff-b844-aeb7268d13bc" />
 
-![Output9](output.png)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert the following products into the Products table:
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Products (Name, Category, Price, Stock) VALUES ('Smartphone', 'Electronics',800,150);
+INSERT INTO Products (Name, Category, Price, Stock) VALUES ('Headphones', 'Accessories',200,300);
 ```
 
 **Output:**
+<img width="1153" height="269" alt="image" src="https://github.com/user-attachments/assets/331300b1-e646-497f-be62-4c071d27513a" />
 
-![Output10](output.png)
+
 
 
 ## RESULT

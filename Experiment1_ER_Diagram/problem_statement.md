@@ -8,8 +8,8 @@ Gain hands-on experience in designing ER diagrams that represent database struct
 
 ---
 
-## Reg No : 212224040312
-## Name : A. Sherwin Infano
+## Reg No : 212224040040
+## Name : Avantika Krishnadas Kundooly
 
 # Scenario A: City Fitness Club Management
 
